@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 470px ; width:740px">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/d3.v3.min.js"></script>
+    <script src="./Library.js"> </script>
+    
+    <style>
+        
+        #cin {
+            align-content: center;
+            border-style: solid;
+            border-width: medium;
+        }
+        input.button {
+            font-size: 18px;
+        }
+
+        div.center {
+            margin: auto;
+            width: 60%;
+
+        }
+        .grid {
+                     stroke: #000;
+                   }
+
+
+    </style>
+
+</head>
+<body>
+    <div align="center" style="width: 705px; height: 470px">
+    <p id="chart"> 
+        <svg style="width: 705; height:470">
+                <defs>
+                        <marker id="arrow2"
+                        viewBox="0 -5 10 10" 
+                        refX="9" 
+                        markerWidth="3" 
+                        markerHeight="3" 
+                        orient="auto">
+                        <path d="M0,-5 L10,0 L0,5" fill="#333"></path>
+                        </marker>
+                </defs>
+        </svg>
+        
+        
+    </p>
+
+    </div>
+<script>
+(function () {
+    
+
+    //     xscale= d3.scale.linear().domain([0, 45]).range([0,705]) //(2) 定义x和y比例尺
+    //     yscale= d3.scale.linear().domain([0, 30]).range([0,470])//设定高
+    // var svg = d3.select("svg"); 
+    // //给SVG添加分组，并设置样式类，样式见<style>标签中的设置
+    //     var grid = svg.selectAll(".grid")
+    //     .data(xscale.ticks(40))
+    //     .enter().append("g")
+    //     .attr("class", "grid");
+    //     //(5) 添加线条，设置起始坐标(x1,y1)和结束坐标(x2,y2)的值即可
+    //     //竖线
+    //     grid.append("line")
+    //     .attr("class", "grid")
+
+    //     .attr("x1", xscale)
+    //     .attr("x2", xscale)
+    //     .attr("y1", 0)
+    //     .attr("y2", 470);
+    //     //横线
+    //     grid.append("line")
+    //     .attr("y1", yscale)
+    //     .attr("y2", yscale)
+    //     .attr("x1", 0)
+    //     .attr("x2", 705);
+})();
+</script>
+
+<script>
+    function addscript(url, flag) {
+        $.getScript(url ,function(){
+            if(flag) alert('加载成功');
+        });
+    }
+
+</script>
+
+
+</body>
+
+
+
+</html>

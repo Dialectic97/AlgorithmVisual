@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <script src="../static/jquery.min.js"></script>
+
+    <!--Java代码高亮必须引入-->
+    <link rel="stylesheet" href="../static/Codemirror/codemirror.css">
+    <script src="../static/Codemirror/codemirror.js"></script>
+    <script src="../static/Codemirror/clike.js"></script>
+    <script src="../static/Codemirror/active-line.js"></script>
+    <script src="CodeMirrorInit.js"></script>
+</head>
+<body>
+
+<textarea id="code" >
+   
+</textarea>
+
+<textarea id="codesave" style="display : none"> 
+    void bubble_sort(int a[], int n)
+    {
+        int i, j, temp;
+        for (j = 0; j < n - 1; j++)
+            for (i = 0; i < n - 1 - j; i++)
+            {
+                if(a[i] > a[i + 1])
+                {
+                    swap(a[j],a[j+1]);
+                }
+            }
+    }
+</textarea>
+
+
+<script>
+
+</script>
+
+</body>
+</html>

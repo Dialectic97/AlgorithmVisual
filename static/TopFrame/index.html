@@ -1,0 +1,311 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset= utf8" />
+
+    <link rel="stylesheet" href="../static/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/Index.css" />
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/bootstrap.min.js"></script>
+    <script src="../static/feather.min.js"></script>
+    <script src="../static/vue"></script>
+   
+    <link href="../static/bootstrap-slider.css" rel="stylesheet" />
+    <script src="../static/bootstrap-slider.min.js"></script>
+    <style>
+      .ShowDiv {
+        border-radius: 10px 10px 10px 10px;
+        display: none;
+        width: 400px;
+        height: 270px;
+        border: 1px solid #343a40;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        margin: auto;
+        background-color: #343a40;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"
+        >Visual Algorithm</a
+      >
+      <input
+        class="form-control form-control-dark w-100 "
+        type="text"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a id="btn_login" class="nav-link" style="display: inline">登陆</a>
+          <a id="btn_logout" class="nav-link" style="display :none">退出</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="vuelist" class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul  class="nav flex-column">
+              <li v-for="item in lists" class="nav-item d-flex justify-content-between px-3 ">
+                <a  v-on:click="select" class="nav-link  pl-0"  style="display: inline !important" href="#">{{item.name}}</a>
+                <a class="delete" v-on:click="delete2" style="display: none">
+                <span class="delete" style="margin-top: 12px; stroke:red"data-feather="minus-circle"></span>
+                </a> 
+                
+              </li>
+
+            </ul>
+
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+            >
+              <span>Add</span>
+              <a  id="btn_upload" class="d-flex align-items-center text-muted" >
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+
+            <h6
+              class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+            >
+              <span>Edit</span>
+              <a v-on:click="deleteicon" class="d-flex align-items-center text-muted" >
+                <span data-feather="edit-2"></span>
+              </a>
+            </h6>
+          </div>
+        </nav>
+
+        <main
+          role="main"
+          class="col-md-9 ml-sm-auto col-lg-10 px-4 padingreset "
+        >
+          <div
+            class="d-flex  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-0 border-bottom"
+          >
+            <div class="progress" style="width: 700px; height:16px">
+              <div
+                id="pro"
+                class="progress-bar"
+                role="progressbar"
+                aria-valuenow="60"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 0%;"
+              >
+                <span class="sr-only">40% 完成</span>
+              </div>
+            </div>
+
+            <div class="btn-toolbar mb-2 mb-md-0" style="margin-left:30px ">
+              <div class="btn-group mr-2">
+                <button
+                  id="pre"
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  <span data-feather="skip-back"></span>
+                </button>
+                <button
+                  id="run"
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  <span id = "play" data-feather="play" style="display: inline"></span>
+                  <span id = "pause" data-feather="pause-circle" style="display: none"></span>
+                </button>
+                <button
+                  id="next"
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary "
+                >
+                  <span data-feather="skip-forward"></span>
+                </button>
+              </div>
+            </div>
+            <div style="margin-left: 30px;">
+              Speed
+            </div>
+            <div style="margin-left: 5px; margin-right: 30px">
+              <input
+                id="ex1"
+                data-slider-id="ex1Slider"
+                type="text"
+                data-slider-min="0"
+                data-slider-max="20"
+                data-slider-step="1"
+                data-slider-value="14"
+              />
+            </div>
+          </div>
+
+          <div class="container-fluid border-bottom">
+            <div class="row">
+              <div class="col-md-8 ">
+                <iframe
+                  class="border-bottom"
+                  id="Animation"
+                  name="Animation"
+                  frameborder="0"
+                  height="500"
+                  width="754"
+                  src='../AnimationFrame/Animation.html'
+              
+                >
+                </iframe>
+                <iframe
+                  id="terminal"
+                  name="terminal"
+                  frameborder="0"
+                  height="300"
+                  width="754"
+                  src="../Terminal/Terminal.html"
+                ></iframe>
+              </div>
+              <div class="col-md-4 fix-right">
+                <iframe
+                  id="Code"
+                  frameborder="0"
+                  height="700"
+                  width="362"
+                  src="../CodeFrame/Code.html"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </main>
+     
+     
+     
+    
+    
+      </div>
+
+      <div class="ShowDiv" id="div_upload">
+          <form id="form_upload" enctype="multipart/form-data">
+            <input name="filename" id="filename"
+            
+            class="form-control form-control-dark "
+            style="margin-top: 30px; margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+            type="text"
+            placeholder="算法名称"
+          /> 
+  
+
+          <input name="file"
+            class="form-control form-control-dark "
+            style="margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+            type="file"
+            placeholder="Pass"
+            
+          />
+          </form>
+          
+          <button id="ajax_upload" v-on:click="upload" class="btn btn-info" style="margin-left: 20px; width: 350px; margin-bottom: 20px" >上传</button>
+  </div>
+
+
+
+    
+  
+  </div>
+
+    <div class="ShowDiv" id="div_login">
+      <form id="form_login" >
+        <input name="user" id="login_user"
+        class="form-control form-control-dark "
+        style="margin-top: 30px; margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+        type="text"
+        placeholder="User"
+        aria-label="Search"
+      /> 
+        <input name="pass"
+        class="form-control form-control-dark "
+        style="margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+        type="password"
+        placeholder="Pass"
+        aria-label="Search"
+      />
+      </form>
+      <button id="ajax_login"  class="btn btn-info" style="margin-left: 20px; width: 350px; margin-bottom: 20px" >登录</button>
+      <button id="btn_register"”type="button" class="btn btn-info" style="margin-left: 20px; width: 350px;">注册</button>
+    </div>
+    <div class="ShowDiv" id="div_register">
+            <form id="form_register">
+              <input name="user" id="login_user"
+              class="form-control form-control-dark "
+              style="margin-top: 30px; margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+              type="text"
+              placeholder="User"
+              aria-label="Search"
+            /> 
+              <input name="pass"
+              class="form-control form-control-dark "
+              style="margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+              type="password"
+              placeholder="Pass"
+              aria-label="Search"
+            />
+
+            <input name="pass2"
+              class="form-control form-control-dark "
+              style="margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+              type="password"
+              placeholder="Pass"
+              aria-label="Search"
+            />
+            </form>
+            <button id="ajax_register"  class="btn btn-info" style="margin-left: 20px; width: 350px; margin-bottom: 20px" >注册</button>
+            
+    </div>
+    <div class="ShowDiv" id="div_register">
+            <form id="form_register">
+              <input name="user" id="login_user"
+              class="form-control form-control-dark "
+              style="margin-top: 30px; margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+              type="text"
+              placeholder="User"
+              aria-label="Search"
+            /> 
+              <input name="pass"
+              class="form-control form-control-dark "
+              style="margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+              type="password"
+              placeholder="Pass"
+              aria-label="Search"
+            />
+
+            <input name="pass2"
+              class="form-control form-control-dark "
+              style="margin-right: 10px; margin-left: 20px; margin-bottom: 20px; width:350px !important"
+              type="password"
+              placeholder="Pass"
+              aria-label="Search"
+            />
+            </form>
+            <button id="ajax_register"  class="btn btn-info" style="margin-left: 20px; width: 350px; margin-bottom: 20px" >注册</button>
+            
+    </div>
+
+    
+
+
+  <script> feather.replace();</script>
+  <script src="TopFrame/Blindvue.js"> </script>
+  <script src='TopFrame/BlindPlayer.js'></script>
+  <script src="TopFrame/BlindShowdiv.js"></script>
+  <script src="TopFrame/Initlist.js"></script>
+  </body>
+</html>
